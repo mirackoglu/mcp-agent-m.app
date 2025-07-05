@@ -31,8 +31,8 @@ app.post("/agent", async (req, res) => {
       break;
     }
   }
-
-  const url = `http://public.api.careerjet.net/search?affid=213e213hd12344552&locale_code=tr_TR&user_ip=193.255.106.3&user_agent=samu&keywords=${encodeURIComponent(keywords)}&location=${encodeURIComponent(location)}&page=1`;
+  //aşşağıda ki gerekli yerleri(env) kendi özel bilgilerinizle doldurmanız gereklidir.
+  const url = `${process.env.CAREERJET_API_URL}?affid=${process.env.CAREERJET_AFFID}&locale_code=${process.env.CAREERJET_LOCALE}&user_ip=${process.env.CAREERJET_USER_IP}&user_agent=${process.env.CAREERJET_USER_AGENT}&keywords=${encodeURIComponent(keywords)}&location=${encodeURIComponent(location)}&page=1`;
 
   try {
     const response = await fetch(url);
