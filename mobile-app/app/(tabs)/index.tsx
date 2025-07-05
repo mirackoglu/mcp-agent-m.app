@@ -21,7 +21,7 @@ export default function HomeScreen() {
     setMessages(prev => [...prev, { sender: 'user', text: question }]);
 
     try {
-      const response = await fetch('http://10.122.110.235:3000/agent', {
+      const response = await fetch(`${process.env.REACT_APP_API_BASE_URL}/agent`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
